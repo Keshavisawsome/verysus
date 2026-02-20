@@ -115,16 +115,16 @@ box.innerHTML+=line;
 });
 
 }
-// function sendToSheet(ipv4, ipv6, city, state, lat, lon){
-//   fetch("https://script.google.com/macros/s/AKfycbzoncva9T-kcbvaO39rGC-v8sgHG6LgaaIfPyQdl3VD_8Y8p8wt3YhTIjQHoB4JjML8/exec", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ ipv4, ipv6, city, state, lat, lon })
-//   })
-//   .then(res => res.text())
-//   .then(data => console.log("Sent:", data))
-//   .catch(err => console.error("Error:", err));
-// }
+function sendToSheet(ipv4, ipv6, city, state, lat, lon){
+  fetch("https://script.google.com/macros/s/AKfycbzoncva9T-kcbvaO39rGC-v8sgHG6LgaaIfPyQdl3VD_8Y8p8wt3YhTIjQHoB4JjML8/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ipv4, ipv6, city, state, lat, lon })
+  })
+  .then(res => res.text())
+  .then(data => console.log("Sent:", data))
+  .catch(err => console.error("Error:", err));
+}
 </script>
 
 </body>
