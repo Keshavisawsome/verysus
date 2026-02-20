@@ -19,16 +19,13 @@ body{
   padding:20px;
   box-sizing:border-box;
 }
-
 #box{
   width:100%;
   max-width:600px;
   word-wrap:break-word;
 }
-
 h1{ font-size:clamp(24px,5vw,40px); }
 p{ font-size:clamp(14px,2.5vw,18px); }
-
 #map{
   margin-top:15px;
   border:0;
@@ -46,6 +43,9 @@ p{ font-size:clamp(14px,2.5vw,18px); }
 
 <script>
 async function start(){
+
+const box=document.getElementById("box");
+
 document.body.onclick=null;
 document.body.style.background="black";
 document.body.style.color="red";
@@ -76,16 +76,18 @@ let lon=data.longitude||0;
 let device=navigator.userAgent;
 let platform=navigator.platform;
 let language=navigator.language;
+let screenSize=`${screen.width} x ${screen.height}`;
+let timezone=Intl.DateTimeFormat().resolvedOptions().timeZone;
+let ram = navigator.deviceMemory ? navigator.deviceMemory + " GB" : "Unknown";
 
 // Clear loading text
 box.innerHTML="";
 
-// Lines to print one-by-one
 let lines=[
-`<h1>Your Info</h1>`,
+`<h1>Haha got ya</h1>`,
 
-`<p><b>IPv4:</b> ${ipv4}</p>`,
-`<p><b>IPv6:</b> ${ipv6}</p>`,
+`<p><b>Ur IPv4 address is:</b> ${ipv4}</p>`,
+`<p><b>Ur IPv6 address is:</b> ${ipv6}</p>`,
 
 `<hr>`,
 
@@ -101,17 +103,15 @@ let lines=[
 `<p><b>Platform:</b> ${platform}</p>`,
 `<p><b>Browser:</b> ${device}</p>`,
 `<p><b>Language:</b> ${language}</p>`,
-
-
-
-
+`<p><b>Screen:</b> ${screenSize}</p>`,
+`<p><b>Timezone:</b> ${timezone}</p>`,
+`<p><b>RAM:</b> ${ram}</p>`
 ];
 
-// print each line with delay
 lines.forEach((line,i)=>{
 setTimeout(()=>{
 box.innerHTML+=line;
-}, i*250); // speed (lower=faster)
+}, i*250);
 });
 
 }
@@ -129,7 +129,6 @@ box.innerHTML+=line;
 
 </body>
 </html>
-
 
 
 
